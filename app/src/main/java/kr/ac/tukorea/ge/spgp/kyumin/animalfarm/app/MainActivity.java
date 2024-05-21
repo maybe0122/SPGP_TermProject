@@ -1,12 +1,17 @@
-package kr.ac.tukorea.ge.spgp.kyumin.animalfarm;
+package kr.ac.tukorea.ge.spgp.kyumin.animalfarm.app;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.MotionEvent;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+
+import kr.ac.tukorea.ge.spgp.kyumin.animalfarm.R;
+import kr.ac.tukorea.ge.spgp.kyumin.framework.interfaces.IGameObject;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -20,5 +25,13 @@ public class MainActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+    }
+
+    @Override
+    public boolean onTouchEvent(MotionEvent event) {
+        if (event.getAction() == MotionEvent.ACTION_DOWN) {
+            startActivity(new Intent(this, AnimalFarmActivity.class));
+        }
+        return super.onTouchEvent(event);
     }
 }
